@@ -1,4 +1,4 @@
-# RS School REST service
+# Caesar cipher CLI tool
 
 ## Prerequisites
 
@@ -17,44 +17,35 @@ git clone {repository URL}
 npm install
 ```
 
+## This CLI tool has 4 arguments
+
+- --action (alias -a): String **REQUIRED**, encode or decode action
+- --shift (alias -s): Number **REQUIRED**, shift for encrypting/decrypting
+- --input (alias -i): String, path to input file
+- --output (alias -o): String, path to output file
+
 ## Running application
 
 ```
-npm start
+$ cd task1
+$ node index.js -a encode -s 5 -i './path/to/input/file' -o './path/to/output/file' //encode
+$ node index.js -a decode -s 5 -i './path/to/input/file' -o './path/to/output/file' //decode
 ```
 
-After starting the app on port (4000 as default) you can open
-in your browser OpenAPI documentation by typing http://localhost:4000/doc/.
-For more information about OpenAPI/Swagger please visit https://swagger.io/.
+1. **IF** input argument is missing - use your console to input text
 
-## Testing
+   - Example:
 
-After application running open new terminal and enter:
+   ```
+   $ node index.js -a encode -s 3 -o './path/to/output/file' // text will be written to provided file
+   $ node index.js -a encode -s 3  // text will be written to console
+   ```
 
-To test without authorization
+2. **IF** output argument is missing - encoded/decoded text will be written to console
 
-```
-npm test
-```
+   - Example:
 
-To test with authorization
-
-```
-npm run test:auth
-```
-
-## Development
-
-If you're using VSCode, you can get a better developer experience from integration with [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions.
-
-### Auto-fix and format
-
-```
-npm run lint
-```
-
-### Debugging in VSCode
-
-Press <kbd>F5</kbd> to debug.
-
-For more information, visit: https://code.visualstudio.com/docs/editor/debugging
+   ```
+   $ node index.js -a encode -s 3 -i './path/to/input/file' // text will be written to console
+   $ node index.js -a encode -s 3  // text will be written to console
+   ```
